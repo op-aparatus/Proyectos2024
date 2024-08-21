@@ -754,17 +754,3 @@ function fnc__specialcol_(values, context) {
 function fnc_project_color(values, context) {
     return false;
 };
-
-
-
-function exp_label_Sectores_3_eval_expression(context) {
-    // concat(Name, '\n', "L (km)", ' km')
-
-    var feature = context.feature;
-    
-    if (feature.properties) {
-        return fnc_concat([feature.properties['Name'] ,'\n',feature.properties['L (km)'] ,' km'], context);
-    } else {
-        return fnc_concat([feature['Name'] ,'\n',feature['L (km)'] ,' km'], context);
-    }
-}

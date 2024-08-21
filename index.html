@@ -38,13 +38,12 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="data/Localidades_POL_1.js"></script>
-        <script src="data/JuigalpaLaCurva_2.js"></script>
-        <script src="data/Sectores_3.js"></script>
-        <script src="data/CASAS_4.js"></script>
+        <script src="data/Sectores_2.js"></script>
+        <script src="data/CASAS_3.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[11.86175046532576,-85.23229858478575],[12.114043246092685,-84.9087069722007]]);
+        }).fitBounds([[11.909835179776604,-85.33133277217212],[12.162035920910476,-85.00774997863974]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -92,10 +91,10 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_GoogleHybrid_0');
-        map.getPane('pane_GoogleHybrid_0').style.zIndex = 400;
-        var layer_GoogleHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleHybrid_0',
+        map.createPane('pane_GoogleRoad_0');
+        map.getPane('pane_GoogleRoad_0').style.zIndex = 400;
+        var layer_GoogleRoad_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleRoad_0',
             opacity: 1.0,
             attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
@@ -103,8 +102,8 @@
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_GoogleHybrid_0;
-        map.addLayer(layer_GoogleHybrid_0);
+        layer_GoogleRoad_0;
+        map.addLayer(layer_GoogleRoad_0);
         function pop_Localidades_POL_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -185,14 +184,14 @@
             return {
                 pane: 'pane_Localidades_POL_1',
                 opacity: 1,
-                color: 'rgba(35,35,35,1.0)',
+                color: 'rgba(35,35,35,0.5)',
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
                 weight: 1.0, 
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(229,182,54,1.0)',
+                fillColor: 'rgba(229,182,54,0.5)',
                 interactive: true,
             }
         }
@@ -210,7 +209,121 @@
         });
         bounds_group.addLayer(layer_Localidades_POL_1);
         map.addLayer(layer_Localidades_POL_1);
-        function pop_JuigalpaLaCurva_2(feature, layer) {
+        function pop_Sectores_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Sector</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Longitud (km)</th>\
+                        <td class="visible-with-data" id="L_km">' + (feature.properties['L_km'] !== null ? autolinker.link(feature.properties['L_km'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Sectores_2_0(feature) {
+            switch(String(feature.properties['Name'])) {
+                case 'S1':
+                    return {
+                pane: 'pane_Sectores_2',
+                opacity: 1,
+                color: 'rgba(200,81,221,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'S2':
+                    return {
+                pane: 'pane_Sectores_2',
+                opacity: 1,
+                color: 'rgba(135,236,115,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'S3':
+                    return {
+                pane: 'pane_Sectores_2',
+                opacity: 1,
+                color: 'rgba(76,99,213,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'S4':
+                    return {
+                pane: 'pane_Sectores_2',
+                opacity: 1,
+                color: 'rgba(227,120,138,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                case 'S5':
+                    return {
+                pane: 'pane_Sectores_2',
+                opacity: 1,
+                color: 'rgba(64,219,193,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+                default:
+                    return {
+                pane: 'pane_Sectores_2',
+                opacity: 1,
+                color: 'rgba(218,199,105,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
+            }
+        }
+        map.createPane('pane_Sectores_2');
+        map.getPane('pane_Sectores_2').style.zIndex = 402;
+        map.getPane('pane_Sectores_2').style['mix-blend-mode'] = 'normal';
+        var layer_Sectores_2 = new L.geoJson(json_Sectores_2, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Sectores_2',
+            layerName: 'layer_Sectores_2',
+            pane: 'pane_Sectores_2',
+            onEachFeature: pop_Sectores_2,
+            style: style_Sectores_2_0,
+        });
+        bounds_group.addLayer(layer_Sectores_2);
+        map.addLayer(layer_Sectores_2);
+        function pop_CASAS_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
@@ -253,181 +366,38 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_JuigalpaLaCurva_2_0() {
+        function style_CASAS_3_0() {
             return {
-                pane: 'pane_JuigalpaLaCurva_2',
-                opacity: 1,
-                color: 'rgba(51,160,44,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_JuigalpaLaCurva_2');
-        map.getPane('pane_JuigalpaLaCurva_2').style.zIndex = 402;
-        map.getPane('pane_JuigalpaLaCurva_2').style['mix-blend-mode'] = 'normal';
-        var layer_JuigalpaLaCurva_2 = new L.geoJson(json_JuigalpaLaCurva_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_JuigalpaLaCurva_2',
-            layerName: 'layer_JuigalpaLaCurva_2',
-            pane: 'pane_JuigalpaLaCurva_2',
-            onEachFeature: pop_JuigalpaLaCurva_2,
-            style: style_JuigalpaLaCurva_2_0,
-        });
-        bounds_group.addLayer(layer_JuigalpaLaCurva_2);
-        map.addLayer(layer_JuigalpaLaCurva_2);
-        function pop_Sectores_3(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['descriptio'] !== null ? autolinker.link(feature.properties['descriptio'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? autolinker.link(feature.properties['timestamp'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['altitudeMo'] !== null ? autolinker.link(feature.properties['altitudeMo'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? autolinker.link(feature.properties['tessellate'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['extrude'] !== null ? autolinker.link(feature.properties['extrude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visibility'] !== null ? autolinker.link(feature.properties['visibility'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? autolinker.link(feature.properties['drawOrder'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(feature.properties['icon'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['L (km)'] !== null ? autolinker.link(feature.properties['L (km)'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Sectores_3_0() {
-            return {
-                pane: 'pane_Sectores_3',
-                opacity: 1,
-                color: 'rgba(227,26,28,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 2.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Sectores_3');
-        map.getPane('pane_Sectores_3').style.zIndex = 403;
-        map.getPane('pane_Sectores_3').style['mix-blend-mode'] = 'normal';
-        var layer_Sectores_3 = new L.geoJson(json_Sectores_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Sectores_3',
-            layerName: 'layer_Sectores_3',
-            pane: 'pane_Sectores_3',
-            onEachFeature: pop_Sectores_3,
-            style: style_Sectores_3_0,
-        });
-        bounds_group.addLayer(layer_Sectores_3);
-        map.addLayer(layer_Sectores_3);
-        function pop_CASAS_4(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['description'] !== null ? autolinker.link(feature.properties['description'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['timestamp'] !== null ? autolinker.link(feature.properties['timestamp'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['begin'] !== null ? autolinker.link(feature.properties['begin'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['end'] !== null ? autolinker.link(feature.properties['end'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['altitudeMode'] !== null ? autolinker.link(feature.properties['altitudeMode'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['tessellate'] !== null ? autolinker.link(feature.properties['tessellate'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['extrude'] !== null ? autolinker.link(feature.properties['extrude'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['visibility'] !== null ? autolinker.link(feature.properties['visibility'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['drawOrder'] !== null ? autolinker.link(feature.properties['drawOrder'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['icon'] !== null ? autolinker.link(feature.properties['icon'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_CASAS_4_0() {
-            return {
-                pane: 'pane_CASAS_4',
+                pane: 'pane_CASAS_3',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/CASAS_4.svg',
+            iconUrl: 'markers/CASAS_3.svg',
             iconSize: [11.399999999999999, 11.399999999999999]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_CASAS_4');
-        map.getPane('pane_CASAS_4').style.zIndex = 404;
-        map.getPane('pane_CASAS_4').style['mix-blend-mode'] = 'normal';
-        var layer_CASAS_4 = new L.geoJson(json_CASAS_4, {
+        map.createPane('pane_CASAS_3');
+        map.getPane('pane_CASAS_3').style.zIndex = 403;
+        map.getPane('pane_CASAS_3').style['mix-blend-mode'] = 'normal';
+        var layer_CASAS_3 = new L.geoJson(json_CASAS_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CASAS_4',
-            layerName: 'layer_CASAS_4',
-            pane: 'pane_CASAS_4',
-            onEachFeature: pop_CASAS_4,
+            dataVar: 'json_CASAS_3',
+            layerName: 'layer_CASAS_3',
+            pane: 'pane_CASAS_3',
+            onEachFeature: pop_CASAS_3,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_CASAS_4_0(feature));
+                return L.marker(latlng, style_CASAS_3_0(feature));
             },
         });
-        bounds_group.addLayer(layer_CASAS_4);
-        map.addLayer(layer_CASAS_4);
+        bounds_group.addLayer(layer_CASAS_3);
+        map.addLayer(layer_CASAS_3);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -438,6 +408,23 @@
         .className += ' fa fa-search';
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
+        var baseMaps = {};
+        var overlaysTree = [
+        {label: '<b>Proyectos 2024</b>', selectAllCheckbox: true, children: [
+            {label: '<img src="legend/CASAS_3.png" /> CASAS', layer: layer_CASAS_3},
+            {label: 'Sectores<br /><table><tr><td style="text-align: center;"><img src="legend/Sectores_2_S10.png" /></td><td>S1</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_S21.png" /></td><td>S2</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_S32.png" /></td><td>S3</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_S43.png" /></td><td>S4</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_S54.png" /></td><td>S5</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_5.png" /></td><td></td></tr></table>', layer: layer_Sectores_2},
+            {label: '<img src="legend/Localidades_POL_1.png" /> Localidades_POL', layer: layer_Localidades_POL_1},]},
+            {label: "Google Road", layer: layer_GoogleRoad_0},]
+        var lay = L.control.layers.tree(null, overlaysTree,{
+            //namedToggle: true,
+            //selectorBack: false,
+            //closedSymbol: '&#8862; &#x1f5c0;',
+            //openedSymbol: '&#8863; &#x1f5c1;',
+            //collapseAll: 'Collapse all',
+            //expandAll: 'Expand all',
+            collapsed: true,
+        });
+        lay.addTo(map);
         setBounds();
         var i = 0;
         layer_Localidades_POL_1.eachLayer(function(layer) {
@@ -453,12 +440,12 @@
               i++;
         });
         var i = 0;
-        layer_Sectores_3.eachLayer(function(layer) {
+        layer_Sectores_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((exp_label_Sectores_3_eval_expression(context) !== null?String('<div style="color: #323232; font-size: 5pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + exp_label_Sectores_3_eval_expression(context)) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Sectores_3'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 8pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Sectores_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -466,27 +453,27 @@
               i++;
         });
         var i = 0;
-        layer_CASAS_4.eachLayer(function(layer) {
+        layer_CASAS_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #e31a1c; font-size: 5pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CASAS_4'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #e31a1c; font-size: 5pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CASAS_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Localidades_POL_1,layer_Sectores_3,layer_CASAS_4]);
+        resetLabels([layer_Localidades_POL_1,layer_Sectores_2,layer_CASAS_3]);
         map.on("zoomend", function(){
-            resetLabels([layer_Localidades_POL_1,layer_Sectores_3,layer_CASAS_4]);
+            resetLabels([layer_Localidades_POL_1,layer_Sectores_2,layer_CASAS_3]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Localidades_POL_1,layer_Sectores_3,layer_CASAS_4]);
+            resetLabels([layer_Localidades_POL_1,layer_Sectores_2,layer_CASAS_3]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Localidades_POL_1,layer_Sectores_3,layer_CASAS_4]);
+            resetLabels([layer_Localidades_POL_1,layer_Sectores_2,layer_CASAS_3]);
         });
         </script>
     </body>
