@@ -91,10 +91,10 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_GoogleRoad_0');
-        map.getPane('pane_GoogleRoad_0').style.zIndex = 400;
-        var layer_GoogleRoad_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            pane: 'pane_GoogleRoad_0',
+        map.createPane('pane_GoogleHybrid_0');
+        map.getPane('pane_GoogleHybrid_0').style.zIndex = 400;
+        var layer_GoogleHybrid_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleHybrid_0',
             opacity: 1.0,
             attribution: '<a href="https://www.google.at/permissions/geoguidelines/attr-guide.html">Map data ©2015 Google</a>',
             minZoom: 1,
@@ -102,8 +102,8 @@
             minNativeZoom: 0,
             maxNativeZoom: 20
         });
-        layer_GoogleRoad_0;
-        map.addLayer(layer_GoogleRoad_0);
+        layer_GoogleHybrid_0;
+        map.addLayer(layer_GoogleHybrid_0);
         function pop_Localidades_POL_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -414,7 +414,7 @@
             {label: '<img src="legend/CASAS_3.png" /> CASAS', layer: layer_CASAS_3},
             {label: 'Sectores<br /><table><tr><td style="text-align: center;"><img src="legend/Sectores_2_S10.png" /></td><td>S1</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_S21.png" /></td><td>S2</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_S32.png" /></td><td>S3</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_S43.png" /></td><td>S4</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_S54.png" /></td><td>S5</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_2_5.png" /></td><td></td></tr></table>', layer: layer_Sectores_2},
             {label: '<img src="legend/Localidades_POL_1.png" /> Localidades_POL', layer: layer_Localidades_POL_1},]},
-            {label: "Google Road", layer: layer_GoogleRoad_0},]
+            {label: "Google Hybrid", layer: layer_GoogleHybrid_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
             //selectorBack: false,
