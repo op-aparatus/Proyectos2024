@@ -37,27 +37,12 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/Mojonamiento_1.js"></script>
+        <script src="data/Amojonamiento_1.js"></script>
         <script src="data/Nivelacion_2.js"></script>
         <script src="data/Localidades_POL_3.js"></script>
         <script src="data/Sectores_4.js"></script>
         <script src="data/Casas_5.js"></script>
         <script>
-        var highlightLayer;
-        function highlightFeature(e) {
-            highlightLayer = e.target;
-
-            if (e.target.feature.geometry.type === 'LineString' || e.target.feature.geometry.type === 'MultiLineString') {
-              highlightLayer.setStyle({
-                color: '#ffff00',
-              });
-            } else {
-              highlightLayer.setStyle({
-                fillColor: '#ffff00',
-                fillOpacity: 1
-              });
-            }
-        }
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
         })
@@ -124,17 +109,7 @@
         });
         layer_GoogleHybrid_0;
         map.addLayer(layer_GoogleHybrid_0);
-        function pop_Mojonamiento_1(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
+        function pop_Amojonamiento_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Actividad</th>\
@@ -152,9 +127,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Mojonamiento_1_0() {
+        function style_Amojonamiento_1_0() {
             return {
-                pane: 'pane_Mojonamiento_1',
+                pane: 'pane_Amojonamiento_1',
                 opacity: 1,
                 color: 'rgba(255,255,255,0.75)',
                 dashArray: '',
@@ -165,31 +140,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Mojonamiento_1');
-        map.getPane('pane_Mojonamiento_1').style.zIndex = 401;
-        map.getPane('pane_Mojonamiento_1').style['mix-blend-mode'] = 'normal';
-        var layer_Mojonamiento_1 = new L.geoJson(json_Mojonamiento_1, {
+        map.createPane('pane_Amojonamiento_1');
+        map.getPane('pane_Amojonamiento_1').style.zIndex = 401;
+        map.getPane('pane_Amojonamiento_1').style['mix-blend-mode'] = 'normal';
+        var layer_Amojonamiento_1 = new L.geoJson(json_Amojonamiento_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Mojonamiento_1',
-            layerName: 'layer_Mojonamiento_1',
-            pane: 'pane_Mojonamiento_1',
-            onEachFeature: pop_Mojonamiento_1,
-            style: style_Mojonamiento_1_0,
+            dataVar: 'json_Amojonamiento_1',
+            layerName: 'layer_Amojonamiento_1',
+            pane: 'pane_Amojonamiento_1',
+            onEachFeature: pop_Amojonamiento_1,
+            style: style_Amojonamiento_1_0,
         });
-        bounds_group.addLayer(layer_Mojonamiento_1);
-        map.addLayer(layer_Mojonamiento_1);
+        bounds_group.addLayer(layer_Amojonamiento_1);
+        map.addLayer(layer_Amojonamiento_1);
         function pop_Nivelacion_2(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Actividad</th>\
@@ -198,18 +163,6 @@
                     <tr>\
                         <th scope="row">Longitud (km)</th>\
                         <td>' + (feature.properties['L_km'] !== null ? autolinker.link(feature.properties['L_km'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['auxiliary_storage_labeling_lineanchorpercent'] !== null ? autolinker.link(feature.properties['auxiliary_storage_labeling_lineanchorpercent'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['auxiliary_storage_labeling_lineanchorclipping'] !== null ? autolinker.link(feature.properties['auxiliary_storage_labeling_lineanchorclipping'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['auxiliary_storage_labeling_lineanchortype'] !== null ? autolinker.link(feature.properties['auxiliary_storage_labeling_lineanchortype'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['auxiliary_storage_labeling_lineanchortextpoint'] !== null ? autolinker.link(feature.properties['auxiliary_storage_labeling_lineanchortextpoint'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -247,16 +200,6 @@
         bounds_group.addLayer(layer_Nivelacion_2);
         map.addLayer(layer_Nivelacion_2);
         function pop_Localidades_POL_3(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
@@ -362,16 +305,6 @@
         bounds_group.addLayer(layer_Localidades_POL_3);
         map.addLayer(layer_Localidades_POL_3);
         function pop_Sectores_4(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Sector</th>\
@@ -486,19 +419,30 @@
         bounds_group.addLayer(layer_Sectores_4);
         map.addLayer(layer_Sectores_4);
         function pop_Casas_5(feature, layer) {
-            layer.on({
-                mouseout: function(e) {
-                    for (var i in e.target._eventParents) {
-                        if (typeof e.target._eventParents[i].resetStyle === 'function') {
-                            e.target._eventParents[i].resetStyle(e.target);
-                        }
-                    }
-                },
-                mouseover: highlightFeature,
-            });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Casa</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Casas_Cuadrillas</th>\
+                        <td>' + (feature.properties['Casas_Cuadrillas'] !== null ? autolinker.link(feature.properties['Casas_Cuadrillas'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Casas_Adicional</th>\
+                        <td>' + (feature.properties['Casas_Adicional'] !== null ? autolinker.link(feature.properties['Casas_Adicional'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Casas_Conductor</th>\
+                        <td>' + (feature.properties['Casas_Conductor'] !== null ? autolinker.link(feature.properties['Casas_Conductor'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Casas_Coordinador</th>\
+                        <td>' + (feature.properties['Casas_Coordinador'] !== null ? autolinker.link(feature.properties['Casas_Coordinador'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Casas_Total</th>\
+                        <td>' + (feature.properties['Casas_Total'] !== null ? autolinker.link(feature.properties['Casas_Total'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -558,7 +502,7 @@
             {label: '<img src="legend/Localidades_POL_3.png" /> Localidades_POL', layer: layer_Localidades_POL_3},]},
         {label: '<b>AVANCE</b>', selectAllCheckbox: true, children: [
             {label: '<img src="legend/Nivelacion_2.png" /> Nivelacion', layer: layer_Nivelacion_2},
-            {label: '<img src="legend/Mojonamiento_1.png" /> Mojonamiento', layer: layer_Mojonamiento_1},]},
+            {label: '<img src="legend/Amojonamiento_1.png" /> Amojonamiento', layer: layer_Amojonamiento_1},]},
             {label: "Google Hybrid", layer: layer_GoogleHybrid_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -572,12 +516,12 @@
         lay.addTo(map);
         setBounds();
         var i = 0;
-        layer_Mojonamiento_1.eachLayer(function(layer) {
+        layer_Amojonamiento_1.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Mojonamiento_1'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Amojonamiento_1'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -610,15 +554,15 @@
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Mojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
+        resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
         map.on("zoomend", function(){
-            resetLabels([layer_Mojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Mojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Mojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
         });
         </script>
     </body>
