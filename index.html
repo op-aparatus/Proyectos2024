@@ -30,6 +30,7 @@
         <script src="js/leaflet.js"></script>
         <script src="js/L.Control.Layers.Tree.min.js"></script>
         <script src="js/L.Control.Locate.min.js"></script>
+        <script src="js/leaflet-svg-shape-markers.min.js"></script>
         <script src="js/leaflet.rotatedMarker.js"></script>
         <script src="js/leaflet.pattern.js"></script>
         <script src="js/leaflet-hash.js"></script>
@@ -44,6 +45,9 @@
         <script src="data/Localidades_POL_3.js"></script>
         <script src="data/Sectores_4.js"></script>
         <script src="data/Casas_5.js"></script>
+        <script src="data/CIRCUITO10POLIGONALCERRADAJLISTO_6.js"></script>
+        <script src="data/COORDENADASGPSJUIGALPA_LACURVA_7.js"></script>
+        <script src="data/LovagoSantafe_GPS_Coordenadas_8.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
@@ -487,6 +491,191 @@
         });
         bounds_group.addLayer(layer_Casas_5);
         map.addLayer(layer_Casas_5);
+        function pop_CIRCUITO10POLIGONALCERRADAJLISTO_6(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['PUNTOS DE CAMPO'] !== null ? autolinker.link(feature.properties['PUNTOS DE CAMPO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COORDENADA ESTE (X)'] !== null ? autolinker.link(feature.properties['COORDENADA ESTE (X)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COORDENADA NORTE (Y)'] !== null ? autolinker.link(feature.properties['COORDENADA NORTE (Y)'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ELEVACIONES'] !== null ? autolinker.link(feature.properties['ELEVACIONES'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DIF. ELEVACION'] !== null ? autolinker.link(feature.properties['DIF. ELEVACION'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_CIRCUITO10POLIGONALCERRADAJLISTO_6_0() {
+            return {
+                pane: 'pane_CIRCUITO10POLIGONALCERRADAJLISTO_6',
+                radius: 4.0,
+                opacity: 1,
+                color: 'rgba(35,35,35,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(145,82,45,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_6');
+        map.getPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_6').style.zIndex = 406;
+        map.getPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_6').style['mix-blend-mode'] = 'normal';
+        var layer_CIRCUITO10POLIGONALCERRADAJLISTO_6 = new L.geoJson(json_CIRCUITO10POLIGONALCERRADAJLISTO_6, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_CIRCUITO10POLIGONALCERRADAJLISTO_6',
+            layerName: 'layer_CIRCUITO10POLIGONALCERRADAJLISTO_6',
+            pane: 'pane_CIRCUITO10POLIGONALCERRADAJLISTO_6',
+            onEachFeature: pop_CIRCUITO10POLIGONALCERRADAJLISTO_6,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.circleMarker(latlng, style_CIRCUITO10POLIGONALCERRADAJLISTO_6_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_CIRCUITO10POLIGONALCERRADAJLISTO_6);
+        map.addLayer(layer_CIRCUITO10POLIGONALCERRADAJLISTO_6);
+        function pop_COORDENADASGPSJUIGALPA_LACURVA_7(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Z'] !== null ? autolinker.link(feature.properties['Z'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DESC'] !== null ? autolinker.link(feature.properties['DESC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_COORDENADASGPSJUIGALPA_LACURVA_7_0() {
+            return {
+                pane: 'pane_COORDENADASGPSJUIGALPA_LACURVA_7',
+                shape: 'diamond',
+                radius: 8.8,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(72,123,182,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_COORDENADASGPSJUIGALPA_LACURVA_7');
+        map.getPane('pane_COORDENADASGPSJUIGALPA_LACURVA_7').style.zIndex = 407;
+        map.getPane('pane_COORDENADASGPSJUIGALPA_LACURVA_7').style['mix-blend-mode'] = 'normal';
+        var layer_COORDENADASGPSJUIGALPA_LACURVA_7 = new L.geoJson(json_COORDENADASGPSJUIGALPA_LACURVA_7, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_COORDENADASGPSJUIGALPA_LACURVA_7',
+            layerName: 'layer_COORDENADASGPSJUIGALPA_LACURVA_7',
+            pane: 'pane_COORDENADASGPSJUIGALPA_LACURVA_7',
+            onEachFeature: pop_COORDENADASGPSJUIGALPA_LACURVA_7,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_COORDENADASGPSJUIGALPA_LACURVA_7_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_COORDENADASGPSJUIGALPA_LACURVA_7);
+        map.addLayer(layer_COORDENADASGPSJUIGALPA_LACURVA_7);
+        function pop_LovagoSantafe_GPS_Coordenadas_8(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Este'] !== null ? autolinker.link(feature.properties['Este'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Norte'] !== null ? autolinker.link(feature.properties['Norte'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Elevaci�n'] !== null ? autolinker.link(feature.properties['Elevaci�n'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Factor de escala combinada'] !== null ? autolinker.link(feature.properties['Factor de escala combinada'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_LovagoSantafe_GPS_Coordenadas_8_0() {
+            return {
+                pane: 'pane_LovagoSantafe_GPS_Coordenadas_8',
+                shape: 'diamond',
+                radius: 8.8,
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 2.0,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(84,176,74,1.0)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_LovagoSantafe_GPS_Coordenadas_8');
+        map.getPane('pane_LovagoSantafe_GPS_Coordenadas_8').style.zIndex = 408;
+        map.getPane('pane_LovagoSantafe_GPS_Coordenadas_8').style['mix-blend-mode'] = 'normal';
+        var layer_LovagoSantafe_GPS_Coordenadas_8 = new L.geoJson(json_LovagoSantafe_GPS_Coordenadas_8, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_LovagoSantafe_GPS_Coordenadas_8',
+            layerName: 'layer_LovagoSantafe_GPS_Coordenadas_8',
+            pane: 'pane_LovagoSantafe_GPS_Coordenadas_8',
+            onEachFeature: pop_LovagoSantafe_GPS_Coordenadas_8,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.shapeMarker(latlng, style_LovagoSantafe_GPS_Coordenadas_8_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_LovagoSantafe_GPS_Coordenadas_8);
+        map.addLayer(layer_LovagoSantafe_GPS_Coordenadas_8);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -500,6 +689,9 @@
         var baseMaps = {};
         var overlaysTree = [
         {label: '<b>Proyectos 2024</b>', selectAllCheckbox: true, children: [
+            {label: '<img src="legend/LovagoSantafe_GPS_Coordenadas_8.png" /> Lovago-Santa fe_GPS_Coordenadas', layer: layer_LovagoSantafe_GPS_Coordenadas_8},
+            {label: '<img src="legend/COORDENADASGPSJUIGALPA_LACURVA_7.png" /> COORDENADAS GPS JUIGALPA_LACURVA', layer: layer_COORDENADASGPSJUIGALPA_LACURVA_7},
+            {label: '<img src="legend/CIRCUITO10POLIGONALCERRADAJLISTO_6.png" /> CIRCUITO 10 POLIGONAL CERRADA J LISTO', layer: layer_CIRCUITO10POLIGONALCERRADAJLISTO_6},
             {label: '<img src="legend/Casas_5.png" /> Casas', layer: layer_Casas_5},
             {label: 'Sectores<br /><table><tr><td style="text-align: center;"><img src="legend/Sectores_4_S10.png" /></td><td>S1</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_4_S21.png" /></td><td>S2</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_4_S32.png" /></td><td>S3</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_4_S43.png" /></td><td>S4</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_4_S54.png" /></td><td>S5</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_4_5.png" /></td><td></td></tr></table>', layer: layer_Sectores_4},
             {label: '<img src="legend/Localidades_POL_3.png" /> Localidades_POL', layer: layer_Localidades_POL_3},]},
@@ -557,15 +749,41 @@
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
+        var i = 0;
+        layer_COORDENADASGPSJUIGALPA_LACURVA_7.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['DESC'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['DESC']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_COORDENADASGPSJUIGALPA_LACURVA_7'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_LovagoSantafe_GPS_Coordenadas_8.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['ID'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ID']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LovagoSantafe_GPS_Coordenadas_8'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
         map.on("zoomend", function(){
-            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
         });
         </script>
     </body>
