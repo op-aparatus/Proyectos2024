@@ -494,19 +494,24 @@
         function pop_CIRCUITO10POLIGONALCERRADAJLISTO_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['PUNTOS DE CAMPO'] !== null ? autolinker.link(feature.properties['PUNTOS DE CAMPO'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">PUNTOS DE CAMPO</th>\
+                        <td>' + (feature.properties['PUNTOS DE CAMPO'] !== null ? autolinker.link(feature.properties['PUNTOS DE CAMPO'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['COORDENADA ESTE (X)'] !== null ? autolinker.link(feature.properties['COORDENADA ESTE (X)'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">COORDENADA ESTE (X)</th>\
+                        <td>' + (feature.properties['COORDENADA ESTE (X)'] !== null ? autolinker.link(feature.properties['COORDENADA ESTE (X)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['COORDENADA NORTE (Y)'] !== null ? autolinker.link(feature.properties['COORDENADA NORTE (Y)'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">COORDENADA NORTE (Y)</th>\
+                        <td>' + (feature.properties['COORDENADA NORTE (Y)'] !== null ? autolinker.link(feature.properties['COORDENADA NORTE (Y)'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ELEVACIONES'] !== null ? autolinker.link(feature.properties['ELEVACIONES'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ELEVACIONES</th>\
+                        <td>' + (feature.properties['ELEVACIONES'] !== null ? autolinker.link(feature.properties['ELEVACIONES'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['DIF. ELEVACION'] !== null ? autolinker.link(feature.properties['DIF. ELEVACION'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">DIF. ELEVACION</th>\
+                        <td>' + (feature.properties['DIF. ELEVACION'] !== null ? autolinker.link(feature.properties['DIF. ELEVACION'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -528,7 +533,7 @@
                 weight: 1,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(145,82,45,1.0)',
+                fillColor: 'rgba(255,255,255,1.0)',
                 interactive: true,
             }
         }
@@ -555,19 +560,24 @@
         function pop_COORDENADASGPSJUIGALPA_LACURVA_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">X</th>\
+                        <td>' + (feature.properties['X'] !== null ? autolinker.link(feature.properties['X'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Y</th>\
+                        <td>' + (feature.properties['Y'] !== null ? autolinker.link(feature.properties['Y'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Z'] !== null ? autolinker.link(feature.properties['Z'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Z</th>\
+                        <td>' + (feature.properties['Z'] !== null ? autolinker.link(feature.properties['Z'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['DESC'] !== null ? autolinker.link(feature.properties['DESC'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">DESC</th>\
+                        <td>' + (feature.properties['DESC'] !== null ? autolinker.link(feature.properties['DESC'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -617,19 +627,20 @@
         function pop_LovagoSantafe_GPS_Coordenadas_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">ID</th>\
+                        <td>' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Este'] !== null ? autolinker.link(feature.properties['Este'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Este</th>\
+                        <td>' + (feature.properties['Este'] !== null ? autolinker.link(feature.properties['Este'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Norte'] !== null ? autolinker.link(feature.properties['Norte'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Norte</th>\
+                        <td>' + (feature.properties['Norte'] !== null ? autolinker.link(feature.properties['Norte'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Elevaci�n'] !== null ? autolinker.link(feature.properties['Elevaci�n'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['Factor de escala combinada'] !== null ? autolinker.link(feature.properties['Factor de escala combinada'].toLocaleString()) : '') + '</td>\
+                        <th scope="row">Elevaci�n</th>\
+                        <td>' + (feature.properties['Elevaci�n'] !== null ? autolinker.link(feature.properties['Elevaci�n'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -750,6 +761,19 @@
               i++;
         });
         var i = 0;
+        layer_CIRCUITO10POLIGONALCERRADAJLISTO_6.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['PUNTOS DE CAMPO'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['PUNTOS DE CAMPO']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CIRCUITO10POLIGONALCERRADAJLISTO_6'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
         layer_COORDENADASGPSJUIGALPA_LACURVA_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
@@ -775,15 +799,15 @@
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
+        resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_CIRCUITO10POLIGONALCERRADAJLISTO_6,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
         map.on("zoomend", function(){
-            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_CIRCUITO10POLIGONALCERRADAJLISTO_6,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_CIRCUITO10POLIGONALCERRADAJLISTO_6,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
+            resetLabels([layer_Amojonamiento_1,layer_Nivelacion_2,layer_Localidades_POL_3,layer_Sectores_4,layer_CIRCUITO10POLIGONALCERRADAJLISTO_6,layer_COORDENADASGPSJUIGALPA_LACURVA_7,layer_LovagoSantafe_GPS_Coordenadas_8]);
         });
         </script>
     </body>
