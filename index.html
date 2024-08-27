@@ -40,15 +40,13 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/entities_1.js"></script>
-        <script src="data/Amojonamiento_2.js"></script>
-        <script src="data/Nivelacion_3.js"></script>
-        <script src="data/Localidades_POL_4.js"></script>
-        <script src="data/Sectores_5.js"></script>
-        <script src="data/Casas_6.js"></script>
-        <script src="data/CIRCUITO10POLIGONALCERRADAJLISTO_7.js"></script>
-        <script src="data/COORDENADASGPSJUIGALPA_LACURVA_8.js"></script>
-        <script src="data/LovagoSantafe_GPS_Coordenadas_9.js"></script>
+        <script src="data/Avance_20240826_1.js"></script>
+        <script src="data/Localidades_POL_2.js"></script>
+        <script src="data/Sectores_3.js"></script>
+        <script src="data/Casas_4.js"></script>
+        <script src="data/CIRCUITO10POLIGONALCERRADAJLISTO_5.js"></script>
+        <script src="data/COORDENADASGPSJUIGALPA_LACURVA_6.js"></script>
+        <script src="data/LovagoSantafe_GPS_Coordenadas_7.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
@@ -117,7 +115,7 @@
         });
         layer_GoogleHybrid_0;
         map.addLayer(layer_GoogleHybrid_0);
-        function pop_entities_1(feature, layer) {
+        function pop_Avance_20240826_1(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Longitud (km)</th>\
@@ -135,9 +133,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_entities_1_0() {
+        function style_Avance_20240826_1_0() {
             return {
-                pane: 'pane_entities_1',
+                pane: 'pane_Avance_20240826_1',
                 opacity: 1,
                 color: 'rgba(255,255,255,0.75)',
                 dashArray: '',
@@ -148,111 +146,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_entities_1');
-        map.getPane('pane_entities_1').style.zIndex = 401;
-        map.getPane('pane_entities_1').style['mix-blend-mode'] = 'normal';
-        var layer_entities_1 = new L.geoJson(json_entities_1, {
+        map.createPane('pane_Avance_20240826_1');
+        map.getPane('pane_Avance_20240826_1').style.zIndex = 401;
+        map.getPane('pane_Avance_20240826_1').style['mix-blend-mode'] = 'normal';
+        var layer_Avance_20240826_1 = new L.geoJson(json_Avance_20240826_1, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_entities_1',
-            layerName: 'layer_entities_1',
-            pane: 'pane_entities_1',
-            onEachFeature: pop_entities_1,
-            style: style_entities_1_0,
+            dataVar: 'json_Avance_20240826_1',
+            layerName: 'layer_Avance_20240826_1',
+            pane: 'pane_Avance_20240826_1',
+            onEachFeature: pop_Avance_20240826_1,
+            style: style_Avance_20240826_1_0,
         });
-        bounds_group.addLayer(layer_entities_1);
-        map.addLayer(layer_entities_1);
-        function pop_Amojonamiento_2(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Actividad</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Longitud (km)</th>\
-                        <td>' + (feature.properties['L_km'] !== null ? autolinker.link(feature.properties['L_km'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Amojonamiento_2_0() {
-            return {
-                pane: 'pane_Amojonamiento_2',
-                opacity: 1,
-                color: 'rgba(255,255,255,0.75)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'bevel',
-                weight: 10.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Amojonamiento_2');
-        map.getPane('pane_Amojonamiento_2').style.zIndex = 402;
-        map.getPane('pane_Amojonamiento_2').style['mix-blend-mode'] = 'normal';
-        var layer_Amojonamiento_2 = new L.geoJson(json_Amojonamiento_2, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Amojonamiento_2',
-            layerName: 'layer_Amojonamiento_2',
-            pane: 'pane_Amojonamiento_2',
-            onEachFeature: pop_Amojonamiento_2,
-            style: style_Amojonamiento_2_0,
-        });
-        bounds_group.addLayer(layer_Amojonamiento_2);
-        map.addLayer(layer_Amojonamiento_2);
-        function pop_Nivelacion_3(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Actividad</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Longitud (km)</th>\
-                        <td>' + (feature.properties['L_km'] !== null ? autolinker.link(feature.properties['L_km'].toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Nivelacion_3_0() {
-            return {
-                pane: 'pane_Nivelacion_3',
-                opacity: 1,
-                color: 'rgba(255,234,1,0.75)',
-                dashArray: '',
-                lineCap: 'round',
-                lineJoin: 'bevel',
-                weight: 10.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Nivelacion_3');
-        map.getPane('pane_Nivelacion_3').style.zIndex = 403;
-        map.getPane('pane_Nivelacion_3').style['mix-blend-mode'] = 'normal';
-        var layer_Nivelacion_3 = new L.geoJson(json_Nivelacion_3, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Nivelacion_3',
-            layerName: 'layer_Nivelacion_3',
-            pane: 'pane_Nivelacion_3',
-            onEachFeature: pop_Nivelacion_3,
-            style: style_Nivelacion_3_0,
-        });
-        bounds_group.addLayer(layer_Nivelacion_3);
-        map.addLayer(layer_Nivelacion_3);
-        function pop_Localidades_POL_4(feature, layer) {
+        bounds_group.addLayer(layer_Avance_20240826_1);
+        map.addLayer(layer_Avance_20240826_1);
+        function pop_Localidades_POL_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
@@ -328,9 +236,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Localidades_POL_4_0() {
+        function style_Localidades_POL_2_0() {
             return {
-                pane: 'pane_Localidades_POL_4',
+                pane: 'pane_Localidades_POL_2',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.5)',
                 dashArray: '',
@@ -343,21 +251,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_Localidades_POL_4');
-        map.getPane('pane_Localidades_POL_4').style.zIndex = 404;
-        map.getPane('pane_Localidades_POL_4').style['mix-blend-mode'] = 'normal';
-        var layer_Localidades_POL_4 = new L.geoJson(json_Localidades_POL_4, {
+        map.createPane('pane_Localidades_POL_2');
+        map.getPane('pane_Localidades_POL_2').style.zIndex = 402;
+        map.getPane('pane_Localidades_POL_2').style['mix-blend-mode'] = 'normal';
+        var layer_Localidades_POL_2 = new L.geoJson(json_Localidades_POL_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Localidades_POL_4',
-            layerName: 'layer_Localidades_POL_4',
-            pane: 'pane_Localidades_POL_4',
-            onEachFeature: pop_Localidades_POL_4,
-            style: style_Localidades_POL_4_0,
+            dataVar: 'json_Localidades_POL_2',
+            layerName: 'layer_Localidades_POL_2',
+            pane: 'pane_Localidades_POL_2',
+            onEachFeature: pop_Localidades_POL_2,
+            style: style_Localidades_POL_2_0,
         });
-        bounds_group.addLayer(layer_Localidades_POL_4);
-        map.addLayer(layer_Localidades_POL_4);
-        function pop_Sectores_5(feature, layer) {
+        bounds_group.addLayer(layer_Localidades_POL_2);
+        map.addLayer(layer_Localidades_POL_2);
+        function pop_Sectores_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Sector</th>\
@@ -375,11 +283,11 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Sectores_5_0(feature) {
+        function style_Sectores_3_0(feature) {
             switch(String(feature.properties['Name'])) {
                 case 'S1':
                     return {
-                pane: 'pane_Sectores_5',
+                pane: 'pane_Sectores_3',
                 opacity: 1,
                 color: 'rgba(200,81,221,1.0)',
                 dashArray: '',
@@ -392,7 +300,7 @@
                     break;
                 case 'S2':
                     return {
-                pane: 'pane_Sectores_5',
+                pane: 'pane_Sectores_3',
                 opacity: 1,
                 color: 'rgba(135,236,115,1.0)',
                 dashArray: '',
@@ -405,7 +313,7 @@
                     break;
                 case 'S3':
                     return {
-                pane: 'pane_Sectores_5',
+                pane: 'pane_Sectores_3',
                 opacity: 1,
                 color: 'rgba(76,99,213,1.0)',
                 dashArray: '',
@@ -418,7 +326,7 @@
                     break;
                 case 'S4':
                     return {
-                pane: 'pane_Sectores_5',
+                pane: 'pane_Sectores_3',
                 opacity: 1,
                 color: 'rgba(227,120,138,1.0)',
                 dashArray: '',
@@ -431,7 +339,7 @@
                     break;
                 case 'S5':
                     return {
-                pane: 'pane_Sectores_5',
+                pane: 'pane_Sectores_3',
                 opacity: 1,
                 color: 'rgba(64,219,193,1.0)',
                 dashArray: '',
@@ -444,7 +352,7 @@
                     break;
                 default:
                     return {
-                pane: 'pane_Sectores_5',
+                pane: 'pane_Sectores_3',
                 opacity: 1,
                 color: 'rgba(218,199,105,1.0)',
                 dashArray: '',
@@ -457,21 +365,21 @@
                     break;
             }
         }
-        map.createPane('pane_Sectores_5');
-        map.getPane('pane_Sectores_5').style.zIndex = 405;
-        map.getPane('pane_Sectores_5').style['mix-blend-mode'] = 'normal';
-        var layer_Sectores_5 = new L.geoJson(json_Sectores_5, {
+        map.createPane('pane_Sectores_3');
+        map.getPane('pane_Sectores_3').style.zIndex = 403;
+        map.getPane('pane_Sectores_3').style['mix-blend-mode'] = 'normal';
+        var layer_Sectores_3 = new L.geoJson(json_Sectores_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Sectores_5',
-            layerName: 'layer_Sectores_5',
-            pane: 'pane_Sectores_5',
-            onEachFeature: pop_Sectores_5,
-            style: style_Sectores_5_0,
+            dataVar: 'json_Sectores_3',
+            layerName: 'layer_Sectores_3',
+            pane: 'pane_Sectores_3',
+            onEachFeature: pop_Sectores_3,
+            style: style_Sectores_3_0,
         });
-        bounds_group.addLayer(layer_Sectores_5);
-        map.addLayer(layer_Sectores_5);
-        function pop_Casas_6(feature, layer) {
+        bounds_group.addLayer(layer_Sectores_3);
+        map.addLayer(layer_Sectores_3);
+        function pop_Casas_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Casa</th>\
@@ -505,44 +413,44 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Casas_6_0() {
+        function style_Casas_4_0() {
             return {
-                pane: 'pane_Casas_6',
+                pane: 'pane_Casas_4',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Casas_6.svg',
+            iconUrl: 'markers/Casas_4.svg',
             iconSize: [19.0, 19.0]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Casas_6');
-        map.getPane('pane_Casas_6').style.zIndex = 406;
-        map.getPane('pane_Casas_6').style['mix-blend-mode'] = 'normal';
-        var layer_Casas_6 = new L.geoJson(json_Casas_6, {
+        map.createPane('pane_Casas_4');
+        map.getPane('pane_Casas_4').style.zIndex = 404;
+        map.getPane('pane_Casas_4').style['mix-blend-mode'] = 'normal';
+        var layer_Casas_4 = new L.geoJson(json_Casas_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Casas_6',
-            layerName: 'layer_Casas_6',
-            pane: 'pane_Casas_6',
-            onEachFeature: pop_Casas_6,
+            dataVar: 'json_Casas_4',
+            layerName: 'layer_Casas_4',
+            pane: 'pane_Casas_4',
+            onEachFeature: pop_Casas_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Casas_6_0(feature));
+                return L.marker(latlng, style_Casas_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Casas_6);
-        map.addLayer(layer_Casas_6);
-        function pop_CIRCUITO10POLIGONALCERRADAJLISTO_7(feature, layer) {
+        bounds_group.addLayer(layer_Casas_4);
+        map.addLayer(layer_Casas_4);
+        function pop_CIRCUITO10POLIGONALCERRADAJLISTO_5(feature, layer) {
         }
 
-        function style_CIRCUITO10POLIGONALCERRADAJLISTO_7_0() {
+        function style_CIRCUITO10POLIGONALCERRADAJLISTO_5_0() {
             return {
-                pane: 'pane_CIRCUITO10POLIGONALCERRADAJLISTO_7',
+                pane: 'pane_CIRCUITO10POLIGONALCERRADAJLISTO_5',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
@@ -556,27 +464,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_7');
-        map.getPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_7').style.zIndex = 407;
-        map.getPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_7').style['mix-blend-mode'] = 'normal';
-        var layer_CIRCUITO10POLIGONALCERRADAJLISTO_7 = new L.geoJson(json_CIRCUITO10POLIGONALCERRADAJLISTO_7, {
+        map.createPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_5');
+        map.getPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_5').style.zIndex = 405;
+        map.getPane('pane_CIRCUITO10POLIGONALCERRADAJLISTO_5').style['mix-blend-mode'] = 'normal';
+        var layer_CIRCUITO10POLIGONALCERRADAJLISTO_5 = new L.geoJson(json_CIRCUITO10POLIGONALCERRADAJLISTO_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CIRCUITO10POLIGONALCERRADAJLISTO_7',
-            layerName: 'layer_CIRCUITO10POLIGONALCERRADAJLISTO_7',
-            pane: 'pane_CIRCUITO10POLIGONALCERRADAJLISTO_7',
-            onEachFeature: pop_CIRCUITO10POLIGONALCERRADAJLISTO_7,
+            dataVar: 'json_CIRCUITO10POLIGONALCERRADAJLISTO_5',
+            layerName: 'layer_CIRCUITO10POLIGONALCERRADAJLISTO_5',
+            pane: 'pane_CIRCUITO10POLIGONALCERRADAJLISTO_5',
+            onEachFeature: pop_CIRCUITO10POLIGONALCERRADAJLISTO_5,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_CIRCUITO10POLIGONALCERRADAJLISTO_7_0(feature));
+                return L.circleMarker(latlng, style_CIRCUITO10POLIGONALCERRADAJLISTO_5_0(feature));
             },
         });
-        bounds_group.addLayer(layer_CIRCUITO10POLIGONALCERRADAJLISTO_7);
-        map.addLayer(layer_CIRCUITO10POLIGONALCERRADAJLISTO_7);
-        function pop_COORDENADASGPSJUIGALPA_LACURVA_8(feature, layer) {
+        bounds_group.addLayer(layer_CIRCUITO10POLIGONALCERRADAJLISTO_5);
+        map.addLayer(layer_CIRCUITO10POLIGONALCERRADAJLISTO_5);
+        function pop_COORDENADASGPSJUIGALPA_LACURVA_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">ID</th>\
@@ -606,9 +514,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_COORDENADASGPSJUIGALPA_LACURVA_8_0() {
+        function style_COORDENADASGPSJUIGALPA_LACURVA_6_0() {
             return {
-                pane: 'pane_COORDENADASGPSJUIGALPA_LACURVA_8',
+                pane: 'pane_COORDENADASGPSJUIGALPA_LACURVA_6',
                 shape: 'diamond',
                 radius: 8.8,
                 opacity: 1,
@@ -623,27 +531,27 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_COORDENADASGPSJUIGALPA_LACURVA_8');
-        map.getPane('pane_COORDENADASGPSJUIGALPA_LACURVA_8').style.zIndex = 408;
-        map.getPane('pane_COORDENADASGPSJUIGALPA_LACURVA_8').style['mix-blend-mode'] = 'normal';
-        var layer_COORDENADASGPSJUIGALPA_LACURVA_8 = new L.geoJson(json_COORDENADASGPSJUIGALPA_LACURVA_8, {
+        map.createPane('pane_COORDENADASGPSJUIGALPA_LACURVA_6');
+        map.getPane('pane_COORDENADASGPSJUIGALPA_LACURVA_6').style.zIndex = 406;
+        map.getPane('pane_COORDENADASGPSJUIGALPA_LACURVA_6').style['mix-blend-mode'] = 'normal';
+        var layer_COORDENADASGPSJUIGALPA_LACURVA_6 = new L.geoJson(json_COORDENADASGPSJUIGALPA_LACURVA_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_COORDENADASGPSJUIGALPA_LACURVA_8',
-            layerName: 'layer_COORDENADASGPSJUIGALPA_LACURVA_8',
-            pane: 'pane_COORDENADASGPSJUIGALPA_LACURVA_8',
-            onEachFeature: pop_COORDENADASGPSJUIGALPA_LACURVA_8,
+            dataVar: 'json_COORDENADASGPSJUIGALPA_LACURVA_6',
+            layerName: 'layer_COORDENADASGPSJUIGALPA_LACURVA_6',
+            pane: 'pane_COORDENADASGPSJUIGALPA_LACURVA_6',
+            onEachFeature: pop_COORDENADASGPSJUIGALPA_LACURVA_6,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_COORDENADASGPSJUIGALPA_LACURVA_8_0(feature));
+                return L.shapeMarker(latlng, style_COORDENADASGPSJUIGALPA_LACURVA_6_0(feature));
             },
         });
-        bounds_group.addLayer(layer_COORDENADASGPSJUIGALPA_LACURVA_8);
-        map.addLayer(layer_COORDENADASGPSJUIGALPA_LACURVA_8);
-        function pop_LovagoSantafe_GPS_Coordenadas_9(feature, layer) {
+        bounds_group.addLayer(layer_COORDENADASGPSJUIGALPA_LACURVA_6);
+        map.addLayer(layer_COORDENADASGPSJUIGALPA_LACURVA_6);
+        function pop_LovagoSantafe_GPS_Coordenadas_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">ID</th>\
@@ -669,9 +577,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_LovagoSantafe_GPS_Coordenadas_9_0() {
+        function style_LovagoSantafe_GPS_Coordenadas_7_0() {
             return {
-                pane: 'pane_LovagoSantafe_GPS_Coordenadas_9',
+                pane: 'pane_LovagoSantafe_GPS_Coordenadas_7',
                 shape: 'diamond',
                 radius: 8.8,
                 opacity: 1,
@@ -686,26 +594,26 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_LovagoSantafe_GPS_Coordenadas_9');
-        map.getPane('pane_LovagoSantafe_GPS_Coordenadas_9').style.zIndex = 409;
-        map.getPane('pane_LovagoSantafe_GPS_Coordenadas_9').style['mix-blend-mode'] = 'normal';
-        var layer_LovagoSantafe_GPS_Coordenadas_9 = new L.geoJson(json_LovagoSantafe_GPS_Coordenadas_9, {
+        map.createPane('pane_LovagoSantafe_GPS_Coordenadas_7');
+        map.getPane('pane_LovagoSantafe_GPS_Coordenadas_7').style.zIndex = 407;
+        map.getPane('pane_LovagoSantafe_GPS_Coordenadas_7').style['mix-blend-mode'] = 'normal';
+        var layer_LovagoSantafe_GPS_Coordenadas_7 = new L.geoJson(json_LovagoSantafe_GPS_Coordenadas_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_LovagoSantafe_GPS_Coordenadas_9',
-            layerName: 'layer_LovagoSantafe_GPS_Coordenadas_9',
-            pane: 'pane_LovagoSantafe_GPS_Coordenadas_9',
-            onEachFeature: pop_LovagoSantafe_GPS_Coordenadas_9,
+            dataVar: 'json_LovagoSantafe_GPS_Coordenadas_7',
+            layerName: 'layer_LovagoSantafe_GPS_Coordenadas_7',
+            pane: 'pane_LovagoSantafe_GPS_Coordenadas_7',
+            onEachFeature: pop_LovagoSantafe_GPS_Coordenadas_7,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.shapeMarker(latlng, style_LovagoSantafe_GPS_Coordenadas_9_0(feature));
+                return L.shapeMarker(latlng, style_LovagoSantafe_GPS_Coordenadas_7_0(feature));
             },
         });
-        bounds_group.addLayer(layer_LovagoSantafe_GPS_Coordenadas_9);
-        map.addLayer(layer_LovagoSantafe_GPS_Coordenadas_9);
+        bounds_group.addLayer(layer_LovagoSantafe_GPS_Coordenadas_7);
+        map.addLayer(layer_LovagoSantafe_GPS_Coordenadas_7);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -719,17 +627,14 @@
         var baseMaps = {};
         var overlaysTree = [
         {label: '<b>Proyectos 2024</b>', selectAllCheckbox: true, children: [
-            {label: '<img src="legend/LovagoSantafe_GPS_Coordenadas_9.png" /> Lovago-Santa fe_GPS_Coordenadas', layer: layer_LovagoSantafe_GPS_Coordenadas_9},
-            {label: '<img src="legend/COORDENADASGPSJUIGALPA_LACURVA_8.png" /> COORDENADAS GPS JUIGALPA_LACURVA', layer: layer_COORDENADASGPSJUIGALPA_LACURVA_8},
-            {label: '<img src="legend/CIRCUITO10POLIGONALCERRADAJLISTO_7.png" /> CIRCUITO 10 POLIGONAL CERRADA J LISTO', layer: layer_CIRCUITO10POLIGONALCERRADAJLISTO_7},
-            {label: '<img src="legend/Casas_6.png" /> Casas', layer: layer_Casas_6},
-            {label: 'Sectores<br /><table><tr><td style="text-align: center;"><img src="legend/Sectores_5_S10.png" /></td><td>S1</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_5_S21.png" /></td><td>S2</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_5_S32.png" /></td><td>S3</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_5_S43.png" /></td><td>S4</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_5_S54.png" /></td><td>S5</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_5_5.png" /></td><td></td></tr></table>', layer: layer_Sectores_5},
-            {label: '<img src="legend/Localidades_POL_4.png" /> Localidades_POL', layer: layer_Localidades_POL_4},]},
-        {label: '<b>AVANCE</b>', selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Nivelacion_3.png" /> Nivelacion', layer: layer_Nivelacion_3},
-            {label: '<img src="legend/Amojonamiento_2.png" /> Amojonamiento', layer: layer_Amojonamiento_2},]},
-        {label: '<b>BD_Control de Levantamiento_20240826</b>', selectAllCheckbox: true, children: [
-            {label: '<img src="legend/entities_1.png" /> entities', layer: layer_entities_1},]},
+            {label: '<img src="legend/LovagoSantafe_GPS_Coordenadas_7.png" /> Lovago-Santa fe_GPS_Coordenadas', layer: layer_LovagoSantafe_GPS_Coordenadas_7},
+            {label: '<img src="legend/COORDENADASGPSJUIGALPA_LACURVA_6.png" /> COORDENADAS GPS JUIGALPA_LACURVA', layer: layer_COORDENADASGPSJUIGALPA_LACURVA_6},
+            {label: '<img src="legend/CIRCUITO10POLIGONALCERRADAJLISTO_5.png" /> CIRCUITO 10 POLIGONAL CERRADA J LISTO', layer: layer_CIRCUITO10POLIGONALCERRADAJLISTO_5},
+            {label: '<img src="legend/Casas_4.png" /> Casas', layer: layer_Casas_4},
+            {label: 'Sectores<br /><table><tr><td style="text-align: center;"><img src="legend/Sectores_3_S10.png" /></td><td>S1</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_3_S21.png" /></td><td>S2</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_3_S32.png" /></td><td>S3</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_3_S43.png" /></td><td>S4</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_3_S54.png" /></td><td>S5</td></tr><tr><td style="text-align: center;"><img src="legend/Sectores_3_5.png" /></td><td></td></tr></table>', layer: layer_Sectores_3},
+            {label: '<img src="legend/Localidades_POL_2.png" /> Localidades_POL', layer: layer_Localidades_POL_2},]},
+        {label: '<b>SECCIONAMIENTO</b>', selectAllCheckbox: true, children: [
+            {label: '<img src="legend/Avance_20240826_1.png" /> Avance_20240826', layer: layer_Avance_20240826_1},]},
             {label: "Google Hybrid", layer: layer_GoogleHybrid_0},]
         var lay = L.control.layers.tree(null, overlaysTree,{
             //namedToggle: true,
@@ -743,12 +648,12 @@
         lay.addTo(map);
         setBounds();
         var i = 0;
-        layer_entities_1.eachLayer(function(layer) {
+        layer_Avance_20240826_1.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_entities_1'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Avance_20240826_1'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -756,12 +661,12 @@
               i++;
         });
         var i = 0;
-        layer_Amojonamiento_2.eachLayer(function(layer) {
+        layer_Sectores_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Amojonamiento_2'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Sectores_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -769,12 +674,12 @@
               i++;
         });
         var i = 0;
-        layer_Nivelacion_3.eachLayer(function(layer) {
+        layer_CIRCUITO10POLIGONALCERRADAJLISTO_5.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Nivelacion_3'});
+            layer.bindTooltip((layer.feature.properties['PUNTOS DE CAMPO'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['PUNTOS DE CAMPO']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CIRCUITO10POLIGONALCERRADAJLISTO_5'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -782,12 +687,12 @@
               i++;
         });
         var i = 0;
-        layer_Sectores_5.eachLayer(function(layer) {
+        layer_COORDENADASGPSJUIGALPA_LACURVA_6.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Sectores_5'});
+            layer.bindTooltip((layer.feature.properties['DESC'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['DESC']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_COORDENADASGPSJUIGALPA_LACURVA_6'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -795,53 +700,27 @@
               i++;
         });
         var i = 0;
-        layer_CIRCUITO10POLIGONALCERRADAJLISTO_7.eachLayer(function(layer) {
+        layer_LovagoSantafe_GPS_Coordenadas_7.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['PUNTOS DE CAMPO'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['PUNTOS DE CAMPO']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CIRCUITO10POLIGONALCERRADAJLISTO_7'});
+            layer.bindTooltip((layer.feature.properties['ID'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ID']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LovagoSantafe_GPS_Coordenadas_7'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        var i = 0;
-        layer_COORDENADASGPSJUIGALPA_LACURVA_8.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['DESC'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['DESC']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_COORDENADASGPSJUIGALPA_LACURVA_8'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        var i = 0;
-        layer_LovagoSantafe_GPS_Coordenadas_9.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['ID'] !== null?String('<div style="color: #ffffff; font-size: 8pt; font-weight: bold; font-family: \'MS Shell Dlg 2\', sans-serif;">' + layer.feature.properties['ID']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_LovagoSantafe_GPS_Coordenadas_9'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        resetLabels([layer_entities_1,layer_Amojonamiento_2,layer_Nivelacion_3,layer_Localidades_POL_4,layer_Sectores_5,layer_CIRCUITO10POLIGONALCERRADAJLISTO_7,layer_COORDENADASGPSJUIGALPA_LACURVA_8,layer_LovagoSantafe_GPS_Coordenadas_9]);
+        resetLabels([layer_Avance_20240826_1,layer_Localidades_POL_2,layer_Sectores_3,layer_CIRCUITO10POLIGONALCERRADAJLISTO_5,layer_COORDENADASGPSJUIGALPA_LACURVA_6,layer_LovagoSantafe_GPS_Coordenadas_7]);
         map.on("zoomend", function(){
-            resetLabels([layer_entities_1,layer_Amojonamiento_2,layer_Nivelacion_3,layer_Localidades_POL_4,layer_Sectores_5,layer_CIRCUITO10POLIGONALCERRADAJLISTO_7,layer_COORDENADASGPSJUIGALPA_LACURVA_8,layer_LovagoSantafe_GPS_Coordenadas_9]);
+            resetLabels([layer_Avance_20240826_1,layer_Localidades_POL_2,layer_Sectores_3,layer_CIRCUITO10POLIGONALCERRADAJLISTO_5,layer_COORDENADASGPSJUIGALPA_LACURVA_6,layer_LovagoSantafe_GPS_Coordenadas_7]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_entities_1,layer_Amojonamiento_2,layer_Nivelacion_3,layer_Localidades_POL_4,layer_Sectores_5,layer_CIRCUITO10POLIGONALCERRADAJLISTO_7,layer_COORDENADASGPSJUIGALPA_LACURVA_8,layer_LovagoSantafe_GPS_Coordenadas_9]);
+            resetLabels([layer_Avance_20240826_1,layer_Localidades_POL_2,layer_Sectores_3,layer_CIRCUITO10POLIGONALCERRADAJLISTO_5,layer_COORDENADASGPSJUIGALPA_LACURVA_6,layer_LovagoSantafe_GPS_Coordenadas_7]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_entities_1,layer_Amojonamiento_2,layer_Nivelacion_3,layer_Localidades_POL_4,layer_Sectores_5,layer_CIRCUITO10POLIGONALCERRADAJLISTO_7,layer_COORDENADASGPSJUIGALPA_LACURVA_8,layer_LovagoSantafe_GPS_Coordenadas_9]);
+            resetLabels([layer_Avance_20240826_1,layer_Localidades_POL_2,layer_Sectores_3,layer_CIRCUITO10POLIGONALCERRADAJLISTO_5,layer_COORDENADASGPSJUIGALPA_LACURVA_6,layer_LovagoSantafe_GPS_Coordenadas_7]);
         });
         </script>
     </body>
