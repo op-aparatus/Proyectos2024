@@ -1,0 +1,1 @@
+var json_CIRCUITO10POLIGONALCERRADAJLISTO_7 = {"type":"FeatureCollection","name":"CIRCUITO10POLIGONALCERRADAJLISTO_7","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[]}
